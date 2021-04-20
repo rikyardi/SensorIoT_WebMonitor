@@ -4,7 +4,7 @@
 
     //get data from arno
     $nilai = $_GET['sensor']; //sensor dari variabel di arno
-
-    mysqli_query($db, "Update sensor set data_sensor='$nilai'");
+    
+    mysqli_query($db, "Update sensor set suhu='$nilai,'");    
     
 ?>

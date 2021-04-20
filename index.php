@@ -13,10 +13,18 @@
     <script>
     $(document).ready(function(){
         setInterval(function(){
-            $("#sensor").load('cekSensor.php');
+            $("#sensor").load('cekSensorSuhu.php');
         }, 1000);
     });
     </script>
+    <script>
+    $(document).ready(function(){
+        setInterval(function(){
+            $("#sensor_1").load('cekSensorKelembaban.php');
+        }, 1000);
+    });
+    </script>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,7 +39,16 @@
                     <div class="card-body p-1">
                         <h1 class="card-title"><span id="sensor">100</span></h1>
                     </div>
+                    
                 </div>
+                <h3>Kelembaban</h3>
+                <div class="card">
+                    <div class="card-body p-1">
+                <h1 class="card-title"><span id="sensor_1">100</span></h1>
+                </div>
+                    
+                </div>
+         
             </div>
             <div class="col-8 mt-5 bg-dark">
                 
