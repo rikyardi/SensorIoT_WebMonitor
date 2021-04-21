@@ -3,8 +3,8 @@
     $db = mysqli_connect('localhost', 'root', '', 'arnosensor');
 
     //get data from arno
-    $nilai = $_GET['sensor']; //sensor dari variabel di arno
-    
-    mysqli_query($db, "Update sensor set suhu='$nilai,'");    
+    $suhu = $_GET['suhu']; //sensor dari variabel di arno
+    $kelembaban = $_GET['kelembaban'];
+    mysqli_query($db, "Update sensor set suhu='$suhu', kelembaban='$kelembaban'");    
     
 ?>
