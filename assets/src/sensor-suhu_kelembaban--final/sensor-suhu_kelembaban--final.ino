@@ -9,7 +9,7 @@ Created By Embedotronics Technologies*/
 #include <ESP8266mDNS.h>
 #include <SPI.h>
 
-#define DHTPIN D1
+#define DHTPIN 4
 
 #define DHTTYPE DHT11
 
@@ -20,10 +20,10 @@ float humidityData;
 float temperatureData;
 
 
-const char* ssid = "Berkah";// 
-const char* password = "qwerty123";
+const char* ssid = "Arnet_Jaktim";// 
+const char* password = "telkom135";
 //WiFiClient client;
-char server[] = "192.168.43.2";   //eg: 192.168.0.222
+char server[] = "10.237.70.88";   //eg: 192.168.0.222
 
 
 WiFiClient client;    
@@ -69,8 +69,8 @@ void loop()
    if (client.connect(server, 80)) {
     Serial.println("connected");
     // Make a HTTP request:
-    Serial.print("GET /Arnouno_Sensor/kirimData.php?suhu=");
-    client.print("GET /Arnouno_Sensor/kirimData.php?suhu=");     //YOUR URL
+    Serial.print("GET /sensorarnet/php-arnouno-sensor/kirimData.php?suhu=");
+    client.print("GET /sensorarnet/php-arnouno-sensor/kirimData.php?suhu=");     //YOUR URL
     Serial.println(temperatureData);
     client.print(temperatureData);
     client.print("&kelembaban=");
@@ -80,7 +80,7 @@ void loop()
     client.print(" ");      //SPACE BEFORE HTTP/1.1
     client.print("HTTP/1.1");
     client.println();
-    client.println("Host: 192.168.43.2");
+    client.println("Host: 10.237.70.88");
     client.println("Connection: close");
     client.println();
   } else {

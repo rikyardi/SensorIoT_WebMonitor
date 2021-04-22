@@ -37,14 +37,14 @@
                 <h3>Suhu</h3>
                 <div class="card">
                     <div class="card-body p-1">
-                        <h1 class="card-title"><span id="sensor"></span> &#8451</h1>
+                        <h1 class="card-title"><span id="sensor">100</span> &#8451</h1>
                     </div>
                     
                 </div>
                 <h3>Kelembaban</h3>
                 <div class="card">
                     <div class="card-body p-1">
-                <h1 class="card-title"><span id="sensor_1"></span>% RH</h1>
+                <h1 class="card-title"><span id="sensor_1">50</span>% RH</h1>
                 </div>
                     
                 </div>
