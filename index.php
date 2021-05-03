@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/Chart.js"></script>
+    <script src="assets/js/all.min.js"></script>
 
     <script>
     $(document).ready(function(){
@@ -34,6 +36,7 @@
         }, 1000);
     });
     </script>
+
 </head>
 <body>
     <div class="container-fluid">
@@ -57,7 +60,8 @@
 		</div>
         <br>
         <div class="container" style="margin-right:100px">
-        <div class="col-md-5" style="margin-top:117px">
+        <div class="ml-auto text-right" style="margin-bottom: 50px"><h3 id="waktu">waktu</h3></div>
+        <div class="col-md-5">
 				<table class="table table-bordered" style="margin-top:5px; margin-left:10px;">
 					<thead>
 						<td><center><p class="tebel" style="margin-top:0px; margin-bottom:0px; font-size:18px">Suhu (&degC)</p></center></td>
@@ -76,17 +80,19 @@
 					<tr class="info">
 						<td><center><img style="width:100px" src="assets/img/humidity.png" alt=""><h1><p class="tebel" style="margin-top:5px"><span id="sensor_1">0</span>% RH</p></h1></center></td>
 					</tr>
-                    <div class="ml-auto text-right" style="margin-bottom: 50px"><h3 id="waktu">waktu</h3></div>
                 </table>
             </div>
 			</div>
             
 	</div>
     <blockquote class="blockquote tengah">
-        <p class="mb-0">&copy DAFI MUMAMMAR ZULFIKAR & RIKY ARDIANSYAH</p>
-        <footer class="blockquote-footer">GitHub : dafimz | rikyardi 
+        <p class="mb-0">&copy DAFI MUAMMAR ZULFIKAR & RIKY ARDIANSYAH</p>
+        <footer class="blockquote-footer">
+            <div style="font-size: 20px"><i class="fab fa-github"></i><a href="" style="text-decoration:none"> dafimz</a> | 
+            <i class="fab fa-github"></i><a href="" style="text-decoration:none"> rikyardi</a></div>
         <cite title="Source Title">Special Thanks To Allah SWT</cite>
         </footer>
+        <hr style=" width:70%; text-align:center" >
     </blockquote>
 </body>
 </html>
