@@ -61,7 +61,7 @@ void setup() {
 void loop() {
   HTTPClient http;    //Declare object of class HTTPClient
   
-  String suhu, kelembaban, getData, Link;
+  String suhu, kelembaban, getData, Link, sto;
   float humidityData;
   float temperatureData;
 
@@ -70,9 +70,10 @@ void loop() {
   
   suhu = String(temperatureData);   //String to interger conversion
   kelembaban = String(humidityData);
+  sto = "jatinegara";
 
   //GET Data
-  getData = "?suhu=" + suhu+ "&kelembaban=" + kelembaban;  //Note "?" added at front
+  getData = "?suhu=" + suhu+ "&kelembaban=" + kelembaban + "&sto=" + sto;  //Note "?" added at front
   Link = "http://suhusensor.000webhostapp.com/kirimData.php" + getData;
   
   http.begin(Link);     //Specify request destination

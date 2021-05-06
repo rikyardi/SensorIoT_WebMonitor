@@ -22,7 +22,7 @@ DHT dht(DHTPIN,DHTTYPE);
 
 char* ssid = "Arnet_Jaktim";// 
 char* password = "telkom135";
-char* host = "10.237.120.90";   //eg: 192.168.0.222
+char* host = "10.237.120.146";   //eg: 192.168.0.222
 
 // Set your Static IP address
 IPAddress local_IP(10, 237, 27, 0);
@@ -107,8 +107,8 @@ void loop(){
    if (client.connect(host, 80)) {
     Serial.println("connected");
     // Make a HTTP request:
-    Serial.print("GET /sensorarnet/php-arnouno-sensor/kirimData.php?suhu=");
-    client.print("GET /sensorarnet/php-arnouno-sensor/kirimData.php?suhu=");     //YOUR URL
+    Serial.print("GET /php-arnouno-sensor/kirimData.php?suhu=");
+    client.print("GET /php-arnouno-sensor/kirimData.php?suhu=");     //YOUR URL
     Serial.println(temperatureData);
     client.print(temperatureData);
     client.print("&kelembaban=");

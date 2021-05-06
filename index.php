@@ -9,26 +9,36 @@
     <link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/Chart.js"></script>
     <script src="assets/js/all.min.js"></script>
 
     <script>
-    $(document).ready(function(){
-        setInterval(function(){
-            $("#sensor").load('cekSensorSuhu.php');
+    var suhu, kelembaban;
+    
+    function stopInterval(){
+        clearInterval(suhu);
+        clearInterval(kelembaban);
+    }
+    function refreshPage() {
+        location.reload();
+    }
+    function getDataSuhu() {
+        var sto = document.getElementById('sto').value;
+        suhu = setInterval(function(){
+            $("#sensor").load('cekSensorSuhu.php?sto='+sto);
+            console.log(sto);
         }, 1000);
-    });
-    </script>
-    <script>
-    $(document).ready(function(){
-        setInterval(function(){
-            $("#sensor_1").load('cekSensorKelembaban.php');
+    }
+
+    function getDataKelembaban() {
+        var sto = document.getElementById('sto').value;
+        kelembaban = setInterval(function(){
+            $("#sensor_1").load('cekSensorKelembaban.php?sto='+sto);
+            console.log(sto);
         }, 1000);
-    });
-    </script>
-     <script>
+    }
     $(document).ready(function(){
         $("#waktu").load('waktu.php');
         setInterval(function(){
@@ -60,7 +70,22 @@
 		</div>
         <br>
         <div class="container" style="margin-right:100px">
-        <div class="ml-auto text-right" style="margin-bottom: 50px"><h3 id="waktu">waktu</h3></div>
+        <div class=" ml-auto text-right" style="margin-bottom: 50px">
+            <h3 id="waktu">waktu</h3>
+        </div>
+            <label for="">STO</label>
+            <select class="form-control" style="width:40%; margin-bottom: 10px" id="sto" onchange="stopInterval()">
+                <?php 
+                    $db = mysqli_connect('localhost', 'id16662570_root', 'mIsuhn+~p?-{Bg5n', 'id16662570_arnosensor');
+                    $data = mysqli_query($db, "select * from sensor");
+                    while($row = mysqli_fetch_array($data)) {
+                ?>
+                <option value="<?=$row['sto']?>"><?= ucwords($row['sto']) ?></option>
+                <?php } ?>
+            </select>
+            <button class='btn btn-primary mb-2' onclick="getDataSuhu();getDataKelembaban()">Pilih</button>
+            <hr style=" width:70%; text-align:center" >
+        <div class="row">
         <div class="col-md-5">
 				<table class="table table-bordered" style="margin-top:5px; margin-left:10px;">
 					<thead>
@@ -68,7 +93,7 @@
 					</thead>
 					<tr class="success">
 						
-						<td><center><img style="width:100px" src="assets/img/suhu.png"><h1><p class="tebel" style="margin-top:5px"><span id="sensor">0</span> &#8451</p></h1></center></td>
+						<td><center><img style="width:100px" src="assets/img/suhu.png"><h1><p class="tebel" style="margin-top:5px"><span id="sensor">NaN</span> &#8451</p></h1></center></td>
 					</tr>
 				</table>
 			</div>
@@ -78,21 +103,27 @@
 						<td><center><p class="tebel" style="margin-top:0px; margin-bottom:0px; font-size:18px">Relative Humidity (%)</p></center></td>
 					</thead>
 					<tr class="info">
-						<td><center><img style="width:100px" src="assets/img/humidity.png" alt=""><h1><p class="tebel" style="margin-top:5px"><span id="sensor_1">0</span>% RH</p></h1></center></td>
+						<td><center><img style="width:100px" src="assets/img/humidity.png" alt=""><h1><p class="tebel" style="margin-top:5px"><span id="sensor_1">NaN</span>% RH</p></h1></center></td>
 					</tr>
                 </table>
             </div>
-			</div>
-            
+		</div>
+        </div>    
 	</div>
-    <blockquote class="blockquote tengah">
-        <p class="mb-0">&copy DAFI MUAMMAR ZULFIKAR & RIKY ARDIANSYAH</p>
-        <footer class="blockquote-footer">
-            <div style="font-size: 20px"><i class="fab fa-github"></i><a href="" style="text-decoration:none"> dafimz</a> | 
-            <i class="fab fa-github"></i><a href="" style="text-decoration:none"> rikyardi</a></div>
-        <cite title="Source Title">Special Thanks To Allah SWT</cite>
-        </footer>
-        <hr style=" width:70%; text-align:center" >
-    </blockquote>
+    <div class="text-center mt-5">
+        <p class="mb-0">Contact US</p>
+            <footer>
+                <div>
+                    <i class="fab fa-github"></i><a href="https://github.com/dafimz" style="text-decoration:none"> dafimz</a> | 
+                    <i class="fab fa-github"></i><a href="https://github.com/rikyardi" style="text-decoration:none"> rikyardi</a>  
+                </div>
+                <div>
+                    <i class="fas fa-envelope"></i> dafimuammar31@gmail.com | 
+                    <i class="fas fa-envelope"></i> riky.ardi321@gmail.com
+                </div>
+                <cite title="Source Title">Special Thanks To Allah SWT</cite>
+            </footer>
+        <hr style=" width:70%; text-align:center" > 
+        </div>
 </body>
 </html>
